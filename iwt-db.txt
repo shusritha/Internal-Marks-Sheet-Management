@@ -1,0 +1,129 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 02, 2019 at 04:10 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `iwt`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `subject1` varchar(20) NOT NULL,
+  `susername` varchar(20) NOT NULL,
+  `fname` varchar(20) NOT NULL,
+  `semester` int(10) NOT NULL,
+  `ia1` int(10) NOT NULL,
+  `ia2` int(10) NOT NULL,
+  `ia3` int(10) NOT NULL,
+  `avg` int(10) NOT NULL,
+  `aat` int(10) NOT NULL,
+  `assignment` int(10) NOT NULL,
+  `total` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`subject1`, `susername`, `fname`, `semester`, `ia1`, `ia2`, `ia3`, `avg`, `aat`, `assignment`, `total`) VALUES
+('iwt', '1ds16cs106', 'Lily', 6, 9, 9, 9, 9, 9, 9, 27),
+('cbd', '1ds16cs106', 'Alison', 6, 9, 9, 9, 9, 9, 9, 27),
+('cd', '1ds16cs106', 'Rufus', 6, 9, 9, 9, 9, 10, 10, 28),
+('cg', '1ds16cs106', 'Bart', 6, 8, 8, 8, 8, 8, 10, 26),
+('sa/wsn', '1ds16cs106', 'Elenor', 6, 7, 7, 7, 7, 10, 10, 27),
+('st', '1ds16cs106', 'Charles', 6, 10, 10, 10, 10, 9, 9, 28);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `fusername` varchar(20) NOT NULL,
+  `fpassword` varchar(20) NOT NULL,
+  `fname` varchar(20) NOT NULL,
+  `subject1` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`fusername`, `fpassword`, `fname`, `subject1`) VALUES
+('f101', 'cs61', 'Lily', 'iwt'),
+('f104', 'cs64', 'Alison', 'cbd'),
+('f102', 'cs62', 'Rufus', 'cd'),
+('f103', 'cs63', 'Bart', 'cg'),
+('f105', 'cs65', 'Elenor', 'sa/wsn'),
+('f106', 'cs66', 'Charles', 'st');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store`
+--
+
+CREATE TABLE `store` (
+  `username` varchar(20) NOT NULL,
+  `subject1` varchar(20) NOT NULL,
+  `field` varchar(20) NOT NULL,
+  `expected` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`username`, `subject1`, `field`, `expected`) VALUES
+('1ds16cs106', 'IWT', 'Total', 27);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `susername` varchar(20) NOT NULL,
+  `spassword` varchar(10) NOT NULL,
+  `sfname` varchar(20) NOT NULL,
+  `slname` varchar(20) NOT NULL,
+  `semester` int(1) NOT NULL DEFAULT '6',
+  `age` int(2) NOT NULL DEFAULT '20'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`susername`, `spassword`, `sfname`, `slname`, `semester`, `age`) VALUES
+('1ds16cs106', '1110', 'Blair', 'Waldorf', 6, 20),
+('1ds16cs108', '7498', 'Serena', 'Wanderson', 6, 20),
+('1ds16cs129', '4498', 'Dan', 'Humpherey', 6, 20);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
